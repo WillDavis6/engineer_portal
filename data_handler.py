@@ -9,8 +9,8 @@ class Traveler:
         self.part_info = part_info
         self.part_number = part_number
 
-    def __repr__():
-        print("part_info")
+    #def __repr__():
+     #   print("part_info")
 
     def material_flag(self):
         tech_draw_num = material_dictonary.keys()
@@ -68,7 +68,7 @@ class Traveler:
 
 #Initalize search
 print("search initalized")
-search_number = input("enter part number: ")
+#search_number = input("enter part number: ")
 
 # Search for specific part, pull material and finishing information from related dictonaries
 def find_part(part_number):
@@ -80,5 +80,5 @@ def find_part(part_number):
     else:
         print(f"did not find {search_number}")
 
-find_part(search_number)
+#find_part(search_number)
 
