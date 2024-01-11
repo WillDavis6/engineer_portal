@@ -16,19 +16,19 @@ class Traveler:
         tech_draw_num = material_dictonary.keys()
         for draw_num in tech_draw_num:
             if draw_num in self.part_info:
-                selected_draw = material_dictonary.get(draw_num)
-                selected_flag = selected_draw.get(self.part_number)
+                selected_draw = material_dictonary.get(draw_num, "")
+                selected_flag = selected_draw.get(self.part_number, "")
                 return (selected_flag)
         
     def finishing_code(self):
-        finish = self.part_info.get("Finish")
+        finish = self.part_info.get("Finish", "")
         if finish == "MSI FAKE F-100" or input == "MSI FAKE F-05":
             return ""
         elif finish != "MSI FAKE F-100" or input != "MSI FAKE F-05":
-            return (f"{finishing_dictonary.get(input)} PRODUCTION STAMP/DATE:____________")
+            return (f"{finishing_dictonary.get(input, "")} PRODUCTION STAMP/DATE:____________")
 
     def heat_treat_search(self):
-        heat_treat = self.part_info.get("Heat Treat")
+        heat_treat = self.part_info.get("Heat Treat", "")
         if heat_treat == "MSI FAKE T70":
             return ""
         
@@ -42,11 +42,11 @@ class Traveler:
             return ""
         
     def form_tool_search(self):
-        form = self.part_info.get("Formed")
-        tool = self.part_info.get("Tooling")
-        mirror = self.part_info.get("Mirror Part")
-        num_mirror = self.part_info.get("Mirror Part #")
-        machined = self.part_info.get("Machined")
+        form = self.part_info.get("Formed", "")
+        tool = self.part_info.get("Tooling", "")
+        mirror = self.part_info.get("Mirror Part", "")
+        num_mirror = self.part_info.get("Mirror Part #", "")
+        machined = self.part_info.get("Machined", "")
         
         if machined == False:
             if form == True and tool != True and mirror == False:
