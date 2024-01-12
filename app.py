@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, template 
 from data_handler import find_part
 
 
@@ -26,13 +26,9 @@ def get_part():
     </form>
         """
 
+
+search_number = request.form['part-search']
 @app.route('/find-part', methods=['POST'])
 def post_data():
-    search_number = request.form['part-search']
-    return  f"<h1>search part data base</h1>\n\
-    <form method='POST'>\n\
-    <input type='text' placeholder='part number' name='part-search'/>\n\
-        <button>Search Data Base</button>\n\
-    </form>\n\
-    <p>{print(find_part(search_number))}"
-
+    
+    return  html_tempate(search_number)
