@@ -1,5 +1,5 @@
 from flask import Flask, request
-from data_handler import find_part
+from data_search import find_part
 
 @app.route(f'/find-part/<part_number>', methods=['POST'])
 def post_data(part_number):

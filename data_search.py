@@ -13,7 +13,7 @@ def material_flag(input, number):
             selected_flag = selected_drawing.get(number)
             return (selected_flag)
         
-def finishing_code(input, ex_val):
+def finishing_numbers(input, ex_val):
     """
     uses finishing code and if part is an exception part, returns finish instructions.
     """
@@ -23,7 +23,7 @@ def finishing_code(input, ex_val):
     elif input == "MSI FAKE F-100" or input == "MSI FAKE F-05":
         return ""
     elif input != "MSI FAKE F-100" or input != "MSI FAKE F-05":
-        return (f'{finishing_dictonary.get(input)}' DATE COMPLETED:________________)
+        return (f'{finishing_dictonary.get(input)} DATE COMPLETED:________________')
     else:
         return ""
 
@@ -84,7 +84,17 @@ def mirror_t_or_f(input):
     elif input == False:
         return ""
 
-
+def find_exception (part_number):
+    part_info = part_dictonary.get(part_number)
+    ex = exception_dict.keys()
+    for key in ex:
+        ex_part = exception_dict.get(key)
+        if key in part_number and ex_part.get(part_info.get("Material")) != None:
+            ex_val = ex_part.get(part_info.get("Material"))
+        else:
+            ex_val = ""
+        return ex_val
+    
 #Initalize search
 #print("search initalized")
 #search_number = input("enter part number: ")
@@ -94,10 +104,9 @@ def find_part(part_number):
     if part_number in part_dictonary:
         part_info = part_dictonary.get(part_number)
 
-        print(part_info)
-        return Traveler(part_info, part_number)
+        return part_info
     else:
-        print(f"did not find {search_number}")
+        print(f"did not find {part_number}")
 
 #find_part(search_number)
 

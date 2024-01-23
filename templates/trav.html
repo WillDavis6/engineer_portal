@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block content %}
+<p>
+    {{part_data}}
+    <br>
+    <br>
+    <br>
+    {% if part_num == "35-8227-204" %}
+    <img src="{{image_file}}" alt="image of key">
+    {% endif %}
+    <div> {{part_num}}</div>
+    <br>
+    <br>
+    <br>
+    GENERATING TRAVELER:
+    <br>
+    <br>
+    <br>
+    PART NUM___________PART QUANTITY_________________
+    <br>
+    <br>
+    <br>
+    Materials: {{stock}}. {{material}}. ______________
+    <br>
+    <br>
+    <br>
+    {{fab}}
+    <br>
+    <br>
+    <br>
+    {{form}}
+    <br>
+    <br>
+    <br>
+    {{heat_treat}}
+    <br>
+    <br>
+    <br>
+    {{finish}}
+    <br>
+    <br>
+    <br>
+    Quality inspection_______________
+    <br>
+    <br>
+    <br>
+    {{mark}}
+    <br>
+    <br>
+</p>
+
+{% endblock %}
