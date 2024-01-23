@@ -4,18 +4,18 @@ from data_search import find_part, material_flag, finishing_numbers, heat_treat_
 
 
 app = Flask(__name__)
-#app.config('SECRET_KEY') = "secret"
+app.config['SECRET_KEY'] = "secret"
 
 #debug = DebugToolbarExtension
 
 
-@app.route('/', methods=['GET' 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template("index.html")
 
 @app.route('/search_database_for_', methods=['GET', 'POST'])
 def post_datat():
-    part_number = request.get('part_id')
+    part_number = request.form.get('part_id')
     part_data=find_part(part_number)
     if request.method == "POST" and part_data != None:
         flash(f"Found {part_number} in database", 'success')
