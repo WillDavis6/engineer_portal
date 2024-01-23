@@ -48,29 +48,45 @@ def form_tool_search(form, tool, mirror, num_mirror, part_number, machined, name
         if form == True and tool == False and mirror == False:
             if name == "OUTSIDE":
                 return "FORM PART PER FAKE SPECIFICATIONS DURING FAKE INSTALL"
-            
-
-*******************************************************************************************************
-
-        elif form == True and tool != True and mirror == False:
-            return "For part to Fake spec 123ABC:____________"
+            else:
+                return "MAKE FAKE PART CORRECTLY"
+        if form == True and tool == False and mirror == True:
+            return "MAKE FAKE PART CORRECTLY"
         elif form == True and tool == True and mirror == False:
-            return f"Form part to fake spec using tool T-{self.part_number}"
+            return f"FORM FAKE PART WITH FAKE TOOL NUMBER {part_number}"
         elif form == True and tool == True and mirror == True:
-            return f"Form part to fake spec using tool T-{self.part_number} (OPP - T-{num_mirror})"
+            return f"FORM FAKE PART WITH FAKE TOOL NUMBER {part_number} (OPP- {num_mirror})"
         elif form == False:
             return ""
-        else:
-            return "Machine Fake part to fake specifications:___________________"
-        
+    elif machined == True:
+        return "MACHINE FAKE PART WITH FAKE MACHINE"
+    else:
+        return ""
 
-    def compile_traveler(self):
-        stock = self.part_info.get("Stock Size")
-        heat_treat_search(self.part_info)
+def fabricate(machined):
+    if machined == False:
+        return "FAB FAKE PART VERY WELL"
+    else:
+        return ""
+    
+def stamp(input):
+    if input == "STAMP":
+        return "STAMP FAKE PART"
+    elif input == "OTHER":
+        return "MARK OTHER FAKE PART IN FAKE WAY"
+    else:
+        return ""
+    
+
+def mirror_t_or_f(input):
+    if input == True:
+        return "MORE THAN ONE PART"
+    elif input == False:
+        return ""
 
 
 #Initalize search
-print("search initalized")
+#print("search initalized")
 #search_number = input("enter part number: ")
 
 # Search for specific part, pull material and finishing information from related dictonaries
