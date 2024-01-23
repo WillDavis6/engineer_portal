@@ -10,10 +10,10 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=['GET' 'POST'])
-def home(id):
+def home():
     return render_template("index.html")
 
-@app.route('/search_database_for_', mehtods=['GET', 'POST'])
+@app.route('/search_database_for_', methods=['GET', 'POST'])
 def post_datat():
     part_number = request.get('part_id')
     part_data=find_part(part_number)
